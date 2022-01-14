@@ -17,33 +17,29 @@ const List = styled.li`
 const Span = styled.span`
 	display: block;
 `
-type User = {
+type PostType = {
 	ID: number
 	CreatedAt: string
 	UpdatedAt: string
 	DeletedAt: string
 	Name: string
+	Content: string
 }
-const Get: React.VFC = () => {
-	const [users, setUsers] = useState(new Array<User>())
+type GetProps = {
+	posts: PostType[]
+}
 
-	useEffect(() => {
-		axios
-			.get("https://heroku-practice8128.herokuapp.com/get")
-			.then((res) => {
-				setUsers(res.data)
-			})
-			.catch((err) => alert(err))
-	}, [])
+const Get: React.VFC<GetProps> = ({ posts }) => {
 	return (
 		<Div>
 			<OrderedList>
-				{users.map((user) => (
-					<List key={user.ID}>
-						<Span>ID：{user.ID}</Span>
-						<Span>名前：{user.Name}</Span>
-						<Span>作成日時：{user.CreatedAt}</Span>
-						<Span>更新日時：{user.UpdatedAt}</Span>
+				{posts.map((post) => (
+					<List key={post.ID}>
+						<Span>ID：{post.ID}</Span>
+						<Span>名前：{post.Name}</Span>
+						<Span>投稿：{post.Content}</Span>
+						<Span>作成日時：{post.CreatedAt}</Span>
+						<Span>更新日時：{post.UpdatedAt}</Span>
 					</List>
 				))}
 			</OrderedList>

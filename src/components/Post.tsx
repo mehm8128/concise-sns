@@ -9,15 +9,24 @@ const Textarea = styled.textarea`
 	resize: none;
 `
 const Label = styled.label``
-const Post: React.VFC = () => {
+
+type PostProps = {
+	getPosts: () => void
+}
+
+const Post: React.VFC<PostProps> = ({ getPosts }) => {
 	const [name, setName] = useState("")
 	const [content, setContent] = useState("")
 
 	function PostUser() {
 		axios
-			.post("https://heroku-practice8128.herokuapp.com/post", { Name: name })
+			.post("https://heroku-practice8128.herokuapp.com/post", {
+				Name: name,
+				Content: content,
+			})
 			.then((res) => {
 				console.log(res.status)
+				getPosts()
 				setName("")
 				setContent("")
 			})
