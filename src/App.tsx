@@ -21,7 +21,7 @@ const App: React.VFC = () => {
 
 	function GetPosts() {
 		axios
-			.get("https://heroku-practice8128.herokuapp.com/get")
+			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
 				setPosts(res.data.reverse())
 			})
@@ -29,7 +29,7 @@ const App: React.VFC = () => {
 	}
 	useEffect(() => {
 		axios
-			.get("https://heroku-practice8128.herokuapp.com/get")
+			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
 				setPosts(res.data.reverse())
 			})
