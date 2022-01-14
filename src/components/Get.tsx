@@ -29,7 +29,7 @@ const Get: React.VFC = () => {
 
 	useEffect(() => {
 		axios
-			.get("https://heroku-practice8128.herokuapp.com/users")
+			.get("https://heroku-practice8128.herokuapp.com/get")
 			.then((res) => {
 				setUsers(res.data)
 			})
