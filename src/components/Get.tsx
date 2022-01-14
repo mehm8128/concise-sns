@@ -1,6 +1,22 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import styled from "styled-components"
 
+const Div = styled.div`
+	display: flex;
+	justify-content: center;
+`
+const OrderedList = styled.ol`
+	list-style: none;
+`
+const List = styled.li`
+	width: 500px;
+	border: 1px solid black;
+	margin-top: 8px;
+`
+const Span = styled.span`
+	display: block;
+`
 type User = {
 	ID: number
 	CreatedAt: string
@@ -18,20 +34,20 @@ const Get: React.VFC = () => {
 				setUsers(res.data)
 			})
 			.catch((err) => alert(err))
-	})
+	}, [])
 	return (
-		<div className="Get">
-			<ol>
+		<Div>
+			<OrderedList>
 				{users.map((user) => (
-					<li key={user.ID}>
-						ID：{user.ID}
-						名前：{user.Name}
-						作成日時：{user.CreatedAt}
-						更新日時：{user.UpdatedAt}
-					</li>
+					<List key={user.ID}>
+						<Span>ID：{user.ID}</Span>
+						<Span>名前：{user.Name}</Span>
+						<Span>作成日時：{user.CreatedAt}</Span>
+						<Span>更新日時：{user.UpdatedAt}</Span>
+					</List>
 				))}
-			</ol>
-		</div>
+			</OrderedList>
+		</Div>
 	)
 }
 
