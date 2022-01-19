@@ -25,7 +25,6 @@ const Post: React.VFC<PostProps> = ({ getPosts }) => {
 				Content: content,
 			})
 			.then((res) => {
-				console.log(res.status)
 				getPosts()
 				setName("")
 				setContent("")

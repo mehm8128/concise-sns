@@ -23,7 +23,7 @@ const App: React.VFC = () => {
 		axios
 			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
-				setPosts(res.data.reverse())
+				setPosts(res.data)
 			})
 			.catch((err) => alert(err))
 	}
@@ -31,7 +31,7 @@ const App: React.VFC = () => {
 		axios
 			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
-				setPosts(res.data.reverse())
+				setPosts(res.data)
 			})
 			.catch((err) => alert(err))
 	}, [])
