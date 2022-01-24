@@ -28,6 +28,17 @@ type GetProps = {
 }
 
 const Get: React.VFC<GetProps> = ({ posts }) => {
+	function formatter(time: string) {
+		return (
+			time.split("T")[0].split("-")[0] +
+			"/" +
+			time.split("T")[0].split("-")[1] +
+			"/" +
+			time.split("T")[0].split("-")[2] +
+			" " +
+			time.split("T")[1].split(".")[0]
+		)
+	}
 	return (
 		<Div>
 			<OrderedList>
@@ -36,8 +47,8 @@ const Get: React.VFC<GetProps> = ({ posts }) => {
 						<Span>ID：{post.ID}</Span>
 						<Span>名前：{post.Name}</Span>
 						<Span>投稿：{post.Content}</Span>
-						<Span>作成日時：{post.CreatedAt}</Span>
-						<Span>更新日時：{post.UpdatedAt}</Span>
+						<Span>作成日時：{formatter(post.CreatedAt)}</Span>
+						<Span>更新日時：{formatter(post.UpdatedAt)}</Span>
 					</List>
 				))}
 			</OrderedList>
