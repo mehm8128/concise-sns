@@ -20,7 +20,7 @@ const Post: React.VFC<PostProps> = ({ getPosts }) => {
 
 	function PostUser() {
 		axios
-			.post("hhttps://concise-sns.herokuapp.com/post", {
+			.post("https://concise-sns.herokuapp.com/post", {
 				Name: name,
 				Content: content,
 			})
