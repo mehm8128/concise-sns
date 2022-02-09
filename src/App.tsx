@@ -1,8 +1,9 @@
-import Get from "./components/Get"
-import Post from "./components/Post"
-import styled from "styled-components"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+
+import List from './components/List'
+import Submit from './components/Submit'
 
 const Div = styled.div`
 	text-align: center;
@@ -13,15 +14,15 @@ type PostType = {
 	CreatedAt: string
 	UpdatedAt: string
 	DeletedAt: string
-	Name: string
-	Content: string
+	name: string
+	content: string
 }
 const App: React.VFC = () => {
 	const [posts, setPosts] = useState(new Array<PostType>())
 
 	function GetPosts() {
 		axios
-			.get("https://concise-sns.herokuapp.com/get")
+			.get("http://localhost:8000/get")
 			.then((res) => {
 				setPosts(res.data)
 			})
@@ -29,7 +30,7 @@ const App: React.VFC = () => {
 	}
 	useEffect(() => {
 		axios
-			.get("https://concise-sns.herokuapp.com/get")
+			.get("http://localhost:8000/get")
 			.then((res) => {
 				setPosts(res.data)
 			})
@@ -38,8 +39,8 @@ const App: React.VFC = () => {
 
 	return (
 		<Div>
-			<Post getPosts={GetPosts} />
-			<Get posts={posts} />
+			<Submit getPosts={GetPosts} />
+			<List posts={posts} getPosts={GetPosts} />
 		</Div>
 	)
 }
