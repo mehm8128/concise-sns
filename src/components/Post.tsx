@@ -38,7 +38,7 @@ const Post: React.VFC<PostProps> = ({ post, getPosts }) => {
 				password: password,
 			}
 			axios
-				.post("http://localhost:8000/delete", data)
+				.post("https://concise-sns.herokuapp.com/delete", data)
 				.then((res) => {
 					getPosts()
 					setPassword("")

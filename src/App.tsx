@@ -22,7 +22,7 @@ const App: React.VFC = () => {
 
 	function GetPosts() {
 		axios
-			.get("http://localhost:8000/get")
+			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
 				setPosts(res.data)
 			})
@@ -30,7 +30,7 @@ const App: React.VFC = () => {
 	}
 	useEffect(() => {
 		axios
-			.get("http://localhost:8000/get")
+			.get("https://concise-sns.herokuapp.com/get")
 			.then((res) => {
 				setPosts(res.data)
 			})

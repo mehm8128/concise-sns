@@ -32,7 +32,7 @@ const Submit: React.VFC<SubmitProps> = ({ getPosts }) => {
 				password: password,
 			}
 			axios
-				.post("http://localhost:8000/post", data)
+				.post("https://concise-sns.herokuapp.com/post", data)
 				.then((res) => {
 					getPosts()
 					setName("")
