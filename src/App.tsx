@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import List from './components/List'
+import Login from './components/Login'
 import Submit from './components/Submit'
 
 const Div = styled.div`
@@ -39,6 +40,7 @@ const App: React.VFC = () => {
 
 	return (
 		<Div>
+			<Login />
 			<Submit getPosts={GetPosts} />
 			<List posts={posts} getPosts={GetPosts} />
 		</Div>
